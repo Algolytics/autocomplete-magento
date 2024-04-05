@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (C) 2022 Algomaps (https://algomaps.com)
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Preference section -->
+    <preference
+        for="Algolytics\AlgoIntegration\Api\Config\ConfigProviderInterface"
+        type="Algolytics\AlgoIntegration\Model\Config\ConfigProvider"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\Request\UserOperationsRequestInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\Request\UserOperationsRequest"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\Response\UserOperationsResponseInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\Response\UserOperationsResponse"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\UserOperationsInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\UserOperations"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\HintInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\Hint"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\HintsInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\Hints"
+    />
+
+    <preference
+        for="Algolytics\AlgoIntegration\Api\OneFieldOperationsInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\OneFieldOperations"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\AddressInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\Address"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\AddressesInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\Addresses"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\AuthorizationProviderInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\AuthorizationProvider"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\MatchesInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\Matches"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\MatchAttributesInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\MatchAttributes"
+    />
+    <preference
+        for="Algolytics\AlgoIntegration\Api\SessionProviderInterface"
+        type="Algolytics\AlgoIntegration\Model\Api\SessionProvider"
+    />
+
+    <!-- Type section -->
+    <type name="Algolytics\AlgoIntegration\Service\AbstractClient">
+        <arguments>
+            <argument name="authorizationProvider" xsi:type="object">Algolytics\AlgoIntegration\Model\Api\AuthorizationProvider</argument>
+            <argument name="sessionProvider" xsi:type="object">Algolytics\AlgoIntegration\Model\Api\SessionProvider</argument>
+        </arguments>
+    </type>
+
+</config>

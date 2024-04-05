@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (C) 2022 Algomaps (https://algomaps.com)
+*/
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/algolytics/algo/checkpostalcode/:postalCode" method="GET">
+        <service class="Algolytics\AlgoIntegration\Api\UserOperationsInterface" method="checkPostalCode" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <route url="/V1/algolytics/algo/autoCompleteCity" method="POST">
+        <service class="Algolytics\AlgoIntegration\Api\UserOperationsInterface" method="autoCompleteCity" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <route url="/V1/algolytics/algo/autoCompleteStreet" method="POST">
+        <service class="Algolytics\AlgoIntegration\Api\UserOperationsInterface" method="autoCompleteStreet" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <route url="/V1/algolytics/algo/autoCompleteBuildingNumber" method="POST">
+        <service class="Algolytics\AlgoIntegration\Api\UserOperationsInterface" method="autoCompleteBuildingNumber" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <route url="/V1/algolytics/algo/autoCompletePostalCode" method="POST">
+        <service class="Algolytics\AlgoIntegration\Api\UserOperationsInterface" method="autoCompletePostalCode" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <route url="/V1/algolytics/algo/autoCompleteAddress" method="POST">
+        <service class="Algolytics\AlgoIntegration\Api\OneFieldOperationsInterface" method="autoCompleteAddress" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

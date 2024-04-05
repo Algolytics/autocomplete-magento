@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @copyright Copyright (C) 2022 Algomaps (https://algomaps.com)
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Algolytics_AlgoIntegration">
+        <sequence>
+            <module name="Magento_Webapi" />
+            <module name="Magento_Customer" />
+        </sequence>
+    </module>
+</config>

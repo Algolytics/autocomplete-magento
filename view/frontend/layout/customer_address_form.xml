@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (C) 2023 Algomaps (https://algomaps.com)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_address_edit">
+            <arguments>
+                <argument name="customer_address_view_model" xsi:type="object">Algolytics\AlgoIntegration\ViewModel\CustomerAddress</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

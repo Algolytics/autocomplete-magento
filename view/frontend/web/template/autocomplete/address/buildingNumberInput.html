@@ -1,0 +1,23 @@
+<!--
+/**
+ * @copyright Copyright (C) 2022 Algomaps (https://algomaps.com)
+ */
+-->
+<input type="text"
+       data-bind="
+    algoAutoComplete: {
+        selected: selectedBuildingNumber,
+        options: getBuildingNumber,
+        parentComponentName: $parent.name
+    },
+    event: {change: userChanges},
+    value: value,
+    hasFocus: focused,
+    valueUpdate: valueUpdate,
+    attr: {
+        name: inputName,
+        placeholder: placeholder,
+        'aria-describedby': noticeId,
+        id: uid,
+        disabled: disabled
+}"/>

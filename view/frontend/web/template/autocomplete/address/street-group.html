@@ -1,0 +1,15 @@
+<!--
+/**
+ * @copyright Copyright (C) 2022 Algomaps (https://algomaps.com)
+ */
+-->
+<!-- ko foreach: { data: elems, as: 'element' } -->
+    <!-- ko if: element.visible() -->
+        <!-- ko ifnot: (element.input_type == 'checkbox' || element.input_type == 'radio') -->
+            <!-- ko template: $parent.fieldTemplate --><!-- /ko -->
+        <!-- /ko -->
+        <!-- ko if: (element.input_type == 'checkbox' || element.input_type == 'radio') -->
+            <!-- ko template: element.elementTmpl --><!-- /ko -->
+        <!-- /ko -->
+    <!-- /ko -->
+<!-- /ko -->

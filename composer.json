@@ -1,0 +1,22 @@
+{
+    "name": "algolytics/module-algo-integration",
+    "description": "A Magento2 module responsible for integrating Magento and Algo Maps",
+    "require": {
+        "php": "^7||^8",
+        "magento/framework": "^103",
+        "ext-json": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.1.0",
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Algolytics\\AlgoIntegration\\": ""
+        }
+    }
+}

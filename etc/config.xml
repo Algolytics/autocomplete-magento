@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (C) 2022 Algomaps (https://algomaps.com)
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <algolytics_connector>
+            <general>
+                <active>0</active>
+                <api_url>https://autocomplete.algolytics.pl</api_url>
+                <api_token></api_token>
+                <authentication_header_name>Authorization</authentication_header_name>
+                <authentication_scheme>Basic</authentication_scheme>
+                <session_header_name>SessionId</session_header_name>
+            </general>
+            <one_field>
+                <active>0</active>
+                <api_url>https://autocomplete.algolytics.pl</api_url>
+                <api_token></api_token>
+                <authentication_header_name>Authorization</authentication_header_name>
+                <authentication_scheme>Basic</authentication_scheme>
+                <session_header_name>SessionId</session_header_name>
+            </one_field>
+        </algolytics_connector>
+    </default>
+</config>
