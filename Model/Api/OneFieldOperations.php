@@ -35,36 +35,6 @@ class OneFieldOperations extends AbstractClient implements OneFieldOperationsInt
     private const API_PATH_ADDRESS = '/api/autocomplete/address';
 
     /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\AddressesFactory
-     */
-    private AddressesFactory $addressesFactory;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\AddressFactory
-     */
-    private AddressFactory $addressFactory;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\MatchesFactory
-     */
-    private MatchesFactory $matchesFactory;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\MatchAttributesFactory
-     */
-    private MatchAttributesFactory $matchAttributesFactory;
-
-    /**
-     * @var \Psr\Log\LoggerInterface
-     */
-    private LoggerInterface $logger;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\AuthorizationProvider
-     */
-    protected AuthorizationProvider $authorizationProvider;
-
-    /**
      * @param \GuzzleHttp\ClientFactory $clientFactory
      * @param \GuzzleHttp\Psr7\ResponseFactory $responseFactory
      * @param \Algolytics\AlgoIntegration\Api\Config\ConfigProviderInterface $configProvider
@@ -81,21 +51,15 @@ class OneFieldOperations extends AbstractClient implements OneFieldOperationsInt
         ResponseFactory $responseFactory,
         ConfigProviderInterface $configProvider,
         Json $jsonSerializer,
-        AddressesFactory $addressesFactory,
-        AddressFactory $addressFactory,
-        MatchesFactory $matchesFactory,
-        MatchAttributesFactory $matchAttributesFactory,
-        LoggerInterface $logger,
+        SessionProviderInterface $sessionProvider,
         AuthorizationProvider $authorizationProvider,
-        SessionProviderInterface $sessionProvider
+        private readonly AddressesFactory $addressesFactory,
+        private readonly AddressFactory $addressFactory,
+        private readonly MatchesFactory $matchesFactory,
+        private readonly MatchAttributesFactory $matchAttributesFactory,
+        private readonly LoggerInterface $logger
     ) {
         parent::__construct($clientFactory, $responseFactory, $configProvider, $jsonSerializer, $authorizationProvider, $sessionProvider);
-
-        $this->addressesFactory = $addressesFactory;
-        $this->addressFactory = $addressFactory;
-        $this->matchesFactory = $matchesFactory;
-        $this->matchAttributesFactory = $matchAttributesFactory;
-        $this->logger = $logger;
     }
 
     /**

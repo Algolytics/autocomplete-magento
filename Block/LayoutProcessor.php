@@ -20,20 +20,14 @@ use Magento\Checkout\Helper\Data;
  */
 class LayoutProcessor implements LayoutProcessorInterface
 {
-    private ConfigProvider $configProvider;
-    private Data $checkoutDataHelper;
-
     /**
      * @param ConfigProvider $configProvider
      * @param Data $checkoutDataHelper
      */
     public function __construct(
-        ConfigProvider $configProvider,
-        Data $checkoutDataHelper
-    ) {
-        $this->configProvider = $configProvider;
-        $this->checkoutDataHelper = $checkoutDataHelper;
-    }
+        private readonly ConfigProvider $configProvider,
+        private readonly Data $checkoutDataHelper
+    ) {}
 
     /**
      * Reposition postcode to be above city input, and country drop down to be above region
@@ -173,7 +167,7 @@ class LayoutProcessor implements LayoutProcessorInterface
             $field['children'][1]['config']['elementTmpl'] = 'Algolytics_AlgoIntegration/autocomplete/address/buildingNumberInput';
         }
         if (isset($field['children'][2])) {
-            $field['children'][2]['label'] = __('House Number');
+            $field['children'][2]['label'] = __('Apartment Number');
         }
     }
 

@@ -19,17 +19,11 @@ use Algolytics\AlgoIntegration\Api\Config\ConfigProviderInterface;
 class AuthorizationProvider implements AuthorizationProviderInterface
 {
     /**
-     * @var \Algolytics\AlgoIntegration\Api\Config\ConfigProviderInterface
-     */
-    protected ConfigProviderInterface $config;
-
-    /**
      * @param \Algolytics\AlgoIntegration\Api\Config\ConfigProviderInterface $config
      */
-    public function __construct(ConfigProviderInterface $config)
-    {
-        $this->config = $config;
-    }
+    public function __construct(
+        private readonly ConfigProviderInterface $config
+    ) {}
 
     /**
      * @param bool $oneField

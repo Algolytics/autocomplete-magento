@@ -91,14 +91,10 @@ class ConfigProvider implements ConfigProviderInterface
      */
     private const XML_PATH_ALGOLYTICS_ONE_FIELD_SESSION_HEADER = 'algolytics_connector/one_field/session_header_name';
 
-    private ScopeConfigInterface $scopeConfig;
-    private EncryptorInterface $encryptor;
-
-    public function __construct(ScopeConfigInterface $scopeConfig, EncryptorInterface $encryptor)
-    {
-        $this->scopeConfig = $scopeConfig;
-        $this->encryptor = $encryptor;
-    }
+    public function __construct(
+        private readonly ScopeConfigInterface $scopeConfig,
+        private readonly EncryptorInterface $encryptor
+    ) {}
 
     /**
      * general group

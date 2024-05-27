@@ -25,24 +25,16 @@ class ConfigSetAddressLines implements DataPatchInterface
      */
     private const XML_PATH_CUSTOMER_ADDRESS_STREET_LINES = 'customer/address/street_lines';
 
-    private WriterInterface $writer;
-    private AttributeRepositoryInterface $attributeRepository;
-    private ModuleDataSetupInterface $moduleDataSetup;
-
     /**
      * @param WriterInterface $writer
      * @param AttributeRepositoryInterface $attributeRepository
      * @param ModuleDataSetupInterface $moduleDataSetup
      */
     public function __construct(
-        WriterInterface $writer,
-        AttributeRepositoryInterface $attributeRepository,
-        ModuleDataSetupInterface $moduleDataSetup
-    ) {
-        $this->writer = $writer;
-        $this->attributeRepository = $attributeRepository;
-        $this->moduleDataSetup = $moduleDataSetup;
-    }
+        private readonly WriterInterface $writer,
+        private readonly AttributeRepositoryInterface $attributeRepository,
+        private readonly ModuleDataSetupInterface $moduleDataSetup
+    ) {}
 
     /**
      * @return array

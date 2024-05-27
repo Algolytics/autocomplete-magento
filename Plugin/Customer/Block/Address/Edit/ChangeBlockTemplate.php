@@ -14,12 +14,19 @@ use Magento\Customer\Block\Address\Edit as EditAlias;
 
 class ChangeBlockTemplate
 {
-    private ConfigProviderInterface $configProvider;
-
-    public function __construct(ConfigProviderInterface $configProvider)
-    {
+    /**
+     * @param ConfigProviderInterface $configProvider
+     */
+    public function __construct(
+        private readonly ConfigProviderInterface $configProvider
+    ) {
         $this->configProvider = $configProvider;
     }
+
+    /**
+     * @param EditAlias $subject
+     * @return string|null
+     */
     public function beforeToHtml(EditAlias $subject): ?string
     {
         if ($this->configProvider->isActive() || $this->configProvider->isOneFieldActive()) {

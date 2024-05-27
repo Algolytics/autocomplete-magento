@@ -2,12 +2,12 @@
     "name": "algolytics/module-algo-integration",
     "description": "A Magento2 module responsible for integrating Magento and Algo Maps",
     "require": {
-        "php": "^7||^8",
+        "php": "^8",
         "magento/framework": "^103",
         "ext-json": "*"
     },
     "type": "magento2-module",
-    "version": "1.1.0",
+    "version": "2.2.0",
     "license": [
         "MIT"
     ],

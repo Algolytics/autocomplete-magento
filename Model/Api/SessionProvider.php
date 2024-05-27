@@ -21,20 +21,12 @@ use Magento\Checkout\Model\Session;
 class SessionProvider implements SessionProviderInterface
 {
     /**
-     * @var ConfigProviderInterface
-     */
-    protected ConfigProviderInterface $config;
-
-    private Session $checkoutSession;
-
-    /**
      * @param ConfigProviderInterface $config
      */
-    public function __construct(ConfigProviderInterface $config, Session $checkoutSession)
-    {
-        $this->config = $config;
-        $this->checkoutSession = $checkoutSession;
-    }
+    public function __construct(
+        private readonly ConfigProviderInterface $config,
+        private readonly Session $checkoutSession
+    ) {}
 
     /**
      * @param bool $oneField

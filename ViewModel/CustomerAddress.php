@@ -15,27 +15,30 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class CustomerAddress implements ArgumentInterface
 {
-    private StoreManagerInterface $storeManager;
-    private ConfigProviderInterface $configProvider;
-
     public function __construct(
-        StoreManagerInterface $storeManager,
-        ConfigProviderInterface $configProvider
-    ) {
-        $this->storeManager = $storeManager;
-        $this->configProvider = $configProvider;
-    }
+        private readonly StoreManagerInterface $storeManager,
+        private readonly ConfigProviderInterface $configProvider
+    ) {}
 
+    /**
+     * @return string
+     */
     public function getStoreCode(): string
     {
         return $this->storeManager->getStore()->getCode();
     }
 
+    /**
+     * @return bool
+     */
     public function isOneFieldActive(): bool
     {
         return $this->configProvider->isOneFieldActive();
     }
 
+    /**
+     * @return bool
+     */
     public function isActive(): bool
     {
         return $this->configProvider->isActive();

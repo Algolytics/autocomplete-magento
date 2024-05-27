@@ -54,26 +54,6 @@ class UserOperations extends AbstractClient implements UserOperationsInterface
     private const API_PATH_CHECK_POSTAL_CODE = '/api/autocomplete/check/';
 
     /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\HintFactory
-     */
-    private HintFactory $hintFactory;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\HintsFactory
-     */
-    private HintsFactory $hintsFactory;
-
-    /**
-     * @var \Psr\Log\LoggerInterface
-     */
-    private LoggerInterface $logger;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\AuthorizationProvider
-     */
-    protected AuthorizationProvider $authorizationProvider;
-
-    /**
      * @param \GuzzleHttp\ClientFactory $clientFactory
      * @param \GuzzleHttp\Psr7\ResponseFactory $responseFactory
      * @param \Algolytics\AlgoIntegration\Api\Config\ConfigProviderInterface $configProvider
@@ -88,17 +68,13 @@ class UserOperations extends AbstractClient implements UserOperationsInterface
         ResponseFactory $responseFactory,
         ConfigProviderInterface $configProvider,
         Json $jsonSerializer,
-        HintFactory $hintFactory,
-        HintsFactory $hintsFactory,
-        LoggerInterface $logger,
-        AuthorizationProvider $authorizationProvider,
-        SessionProviderInterface $sessionProvider
+        SessionProviderInterface $sessionProvider,
+        protected AuthorizationProvider $authorizationProvider,
+        private readonly HintFactory $hintFactory,
+        private readonly HintsFactory $hintsFactory,
+        private readonly LoggerInterface $logger
     ) {
         parent::__construct($clientFactory, $responseFactory, $configProvider, $jsonSerializer, $authorizationProvider, $sessionProvider);
-
-        $this->hintsFactory = $hintsFactory;
-        $this->hintFactory = $hintFactory;
-        $this->logger = $logger;
     }
 
     /**

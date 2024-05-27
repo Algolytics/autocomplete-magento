@@ -45,46 +45,6 @@ class AbstractClient
     private const AUTHENTICATION_SCHEME = 'Basic';
 
     /**
-     * @var \GuzzleHttp\ClientFactory
-     */
-    protected ClientFactory $clientFactory;
-
-    /**
-     * @var \GuzzleHttp\Psr7\ResponseFactory
-     */
-    protected ResponseFactory $responseFactory;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Api\Config\ConfigProviderInterface
-     */
-    protected ConfigProviderInterface $configProvider;
-
-    /**
-     * @var \Magento\Framework\Serialize\Serializer\Json
-     */
-    protected Json $jsonSerializer;
-
-    /**
-     * @var string
-     */
-    protected string $authorization;
-
-    /**
-     * @var string
-     */
-    protected string $basic;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\AuthorizationProvider
-     */
-    protected AuthorizationProvider $authorizationProvider;
-
-    /**
-     * @var \Algolytics\AlgoIntegration\Model\Api\SessionProviderInterface
-     */
-    protected SessionProviderInterface $sessionProvider;
-
-    /**
      * @param \GuzzleHttp\ClientFactory $clientFactory
      * @param \GuzzleHttp\Psr7\ResponseFactory $responseFactory
      * @param \Algolytics\AlgoIntegration\Api\Config\ConfigProviderInterface $configProvider
@@ -92,20 +52,13 @@ class AbstractClient
      * @param \Algolytics\AlgoIntegration\Model\Api\AuthorizationProvider $authorizationProvider
      */
     public function __construct(
-        ClientFactory $clientFactory,
-        ResponseFactory $responseFactory,
-        ConfigProviderInterface $configProvider,
-        Json $jsonSerializer,
-        AuthorizationProvider $authorizationProvider,
-        SessionProviderInterface $sessionProvider
-    ) {
-        $this->clientFactory = $clientFactory;
-        $this->responseFactory = $responseFactory;
-        $this->configProvider = $configProvider;
-        $this->jsonSerializer = $jsonSerializer;
-        $this->authorizationProvider = $authorizationProvider;
-        $this->sessionProvider = $sessionProvider;
-    }
+        protected ClientFactory $clientFactory,
+        protected ResponseFactory $responseFactory,
+        protected ConfigProviderInterface $configProvider,
+        protected Json $jsonSerializer,
+        protected AuthorizationProvider $authorizationProvider,
+        protected SessionProviderInterface $sessionProvider
+    ) {}
 
     /**
      * @param string $requestUrl
