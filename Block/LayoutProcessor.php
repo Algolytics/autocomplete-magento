@@ -173,7 +173,7 @@ class LayoutProcessor implements LayoutProcessorInterface
             $field['children'][1]['config']['elementTmpl'] = 'Algolytics_AlgoIntegration/autocomplete/address/buildingNumberInput';
         }
         if (isset($field['children'][2])) {
-            $field['children'][2]['label'] = __('House Number');
+            $field['children'][2]['label'] = __('Apartment Number');
         }
     }
 

@@ -71,7 +71,7 @@ define([
             getBuildingNumbers(cityValue, streetValue, request.term, [function (data) {
                 let items = data.hints;
                 items = items.map(function (obj) {
-                    obj['label'] = obj['building_number'];
+                    obj['label'] = obj['building_number'] + ' (' + obj['postal_code'] + ')';
                     delete obj['building_number'];
                     return obj;
                 });
