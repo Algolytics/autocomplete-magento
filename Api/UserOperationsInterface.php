@@ -46,7 +46,8 @@ interface UserOperationsInterface
      * @param string $city
      * @param string $street
      * @param string $buildingNumber
+     * @param string $postalCode
      * @return \Algolytics\AlgoIntegration\Api\HintsInterface
      */
-    public function autoCompletePostalCode(string $city, string $street, string $buildingNumber): HintsInterface;
+    public function autoCompletePostalCode(string $city, string $street, string $buildingNumber, string $postalCode): HintsInterface;
 }

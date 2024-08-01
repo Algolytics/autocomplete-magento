@@ -20,7 +20,6 @@ class ChangeBlockTemplate
     public function __construct(
         private readonly ConfigProviderInterface $configProvider
     ) {
-        $this->configProvider = $configProvider;
     }
 
     /**

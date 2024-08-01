@@ -142,12 +142,13 @@ class UserOperations extends AbstractClient implements UserOperationsInterface
      * @param string $city
      * @param string $street
      * @param string $buildingNumber
+     * @param string $postalCode
      * @return \Algolytics\AlgoIntegration\Api\HintsInterface
      * @throws \Magento\Framework\Webapi\Exception
      */
-    public function autoCompletePostalCode(string $city, string $street, string $buildingNumber): HintsInterface
+    public function autoCompletePostalCode(string $city, string $street, string $buildingNumber, string $postalCode): HintsInterface
     {
-        $data = $this->preparePostData($city, $street, $buildingNumber);
+        $data = $this->preparePostData($city, $street, $buildingNumber, $postalCode);
 
         return $this->getAutoCompleteData($data, self::API_PATH_POSTAL_CODE);
     }

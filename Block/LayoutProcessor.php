@@ -100,6 +100,10 @@ class LayoutProcessor implements LayoutProcessorInterface
         $streetField = &$jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
         ['shippingAddress']['children']['shipping-address-fieldset']['children']['street'];
         $this->modifyStreetField($streetField);
+
+        $postCodeField = &$jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+        ['shippingAddress']['children']['shipping-address-fieldset']['children']['postcode'];
+        $this->modifyPostCodeField($postCodeField);
     }
 
     /**
@@ -115,6 +119,9 @@ class LayoutProcessor implements LayoutProcessorInterface
 
         $streetField = &$fields['street'];
         $this->modifyStreetField($streetField);
+
+        $postCodeField = &$fields['postcode'];
+        $this->modifyPostCodeField($postCodeField);
     }
 
     /**
@@ -145,6 +152,16 @@ class LayoutProcessor implements LayoutProcessorInterface
     {
         $field['component'] = 'Algolytics_AlgoIntegration/js/autocomplete';
         $field['config']['elementTmpl'] = 'Algolytics_AlgoIntegration/autocomplete/address/cityInput';
+    }
+
+    /**
+     * @param array $field
+     * @return void
+     */
+    private function modifyPostCodeField(array &$field): void
+    {
+        $field['component'] = 'Algolytics_AlgoIntegration/js/autocomplete';
+        $field['config']['elementTmpl'] = 'Algolytics_AlgoIntegration/autocomplete/address/postCodeInput';
     }
 
     /**

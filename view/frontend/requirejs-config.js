@@ -7,7 +7,8 @@ let config = {
             algolyticsCityAutocomplete: 'Algolytics_AlgoIntegration/js/customer/cityAutocomplete',
             algolyticsBuildingNumberAutocomplete: 'Algolytics_AlgoIntegration/js/customer/buildingNumberAutocomplete',
             algolyticsStreetAutocomplete: 'Algolytics_AlgoIntegration/js/customer/streetAutocomplete',
-            algolyticsOneFieldAutocomplete: 'Algolytics_AlgoIntegration/js/customer/autocompleteOneField'
+            algolyticsOneFieldAutocomplete: 'Algolytics_AlgoIntegration/js/customer/autocompleteOneField',
+            algolyticsPostalCodeAutocomplete: 'Algolytics_AlgoIntegration/js/customer/postalCodeAutocomplete'
         }
     }
 }

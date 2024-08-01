@@ -140,12 +140,16 @@ class AbstractClient
      * @param string|null $buildingNumber
      * @return string[]
      */
-    protected function preparePostData(string $city, ?string $street, ?string $buildingNumber): array
+    protected function preparePostData(string $city, ?string $street, ?string $buildingNumber, ?string $postalCode = null): array
     {
-        return [
+        $data = [
             'city' => $city,
             'street' => $street,
             'buildingNumber' => $buildingNumber
         ];
+        if ($postalCode) {
+            $data['postalCode'] = $postalCode;
+        }
+        return $data;
     }
 }
