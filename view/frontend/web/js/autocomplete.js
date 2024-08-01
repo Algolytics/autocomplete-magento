@@ -9,10 +9,11 @@ define([
     'Algolytics_AlgoIntegration/js/action/getCities',
     'Algolytics_AlgoIntegration/js/action/getStreets',
     'Algolytics_AlgoIntegration/js/action/getBuildingNumbers',
+    'Algolytics_AlgoIntegration/js/action/getPostalCodes',
     'Magento_Checkout/js/checkout-data',
     'uiRegistry',
     'jquery/ui'
-], function (Abstract, url, ko, $, getCities,getStreets, getBuildingNumbers, checkoutData, registry) {
+], function (Abstract, url, ko, $, getCities,getStreets, getBuildingNumbers, getPostalCodes, checkoutData, registry) {
     'use strict';
 
     ko.bindingHandlers.algoAutoComplete = {
@@ -58,6 +59,7 @@ define([
         selectedCity: ko.observable(''),
         selectedStreet: ko.observable(''),
         selectedBuildingNumber: ko.observable(''),
+        selectedPostalCode: ko.observable(''),
         getBuildingNumber: function (request, response) {
             let cityComponent = registry.get(this.options.parentComponentName + '.city'),
                 streetComponent = registry.get(this.options.parentComponentName + '.street.0'),
@@ -108,6 +110,29 @@ define([
                 items = items.map(function (obj) {
                     obj['label'] = obj['actual_name'];
                     delete obj['actual_name'];
+                    return obj;
+                });
+                response(items);
+            }]);
+        },
+        getPostalCodes: function (request, response) {
+            let cityComponent = registry.get(this.options.parentComponentName + '.city'),
+                streetComponent = registry.get(this.options.parentComponentName + '.street.0'),
+                builidingNumber = registry.get(this.options.parentComponentName + '.street.1'),
+                cityValue = cityComponent.value(),
+                streetValue = streetComponent.value(),
+                builidingNumberValue = builidingNumber.value();
+
+
+            if (!cityValue) {
+                return;
+            }
+
+            getPostalCodes(cityValue, streetValue, builidingNumberValue, request.term, [function (data) {
+                let items = data.hints;
+                items = items.map(function (obj) {
+                    obj['label'] = obj['postal_code'];
+                    delete obj['postal_code'];
                     return obj;
                 });
                 response(items);
