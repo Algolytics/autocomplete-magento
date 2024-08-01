@@ -166,11 +166,13 @@ class LayoutProcessor implements LayoutProcessorInterface
             $field['children'][0]['label'] = __('Street');
             $field['children'][0]['component'] = 'Algolytics_AlgoIntegration/js/autocomplete';
             $field['children'][0]['config']['elementTmpl'] = 'Algolytics_AlgoIntegration/autocomplete/address/streetInput';
+            unset($field['children'][0]['validation']['required-entry']);
         }
         if (isset($field['children'][1])) {
             $field['children'][1]['label'] = __('Building Number');
             $field['children'][1]['component'] = 'Algolytics_AlgoIntegration/js/autocomplete';
             $field['children'][1]['config']['elementTmpl'] = 'Algolytics_AlgoIntegration/autocomplete/address/buildingNumberInput';
+            $field['children'][1]['validation']['required-entry'] = true;
         }
         if (isset($field['children'][2])) {
             $field['children'][2]['label'] = __('Apartment Number');
